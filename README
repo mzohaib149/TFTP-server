@@ -1,0 +1,22 @@
+In order to run the program type: 
+
+./server [ip address] [port] [max_clients]
+
+in the order 
+
+team5_server.cc:
+
+Contains implementation of server. When request for reading a file comes on the port, file is read completely, chunks are created and put in a vector. client_record is a vector containing information about a sigle client. It includes socket_descriptor (after creation of socket with random port), udp_port (random), vector file_chunks containing all the chunks of file, total_chunks, pointer about current chunk, last_ack_received and last_frame sent. On reception of ack, a new chunk is sent. The program can handle multiple connections at a time and can send chunks independently to more than one host. The program handles both NETASCII and OCTET mode.
+
+
+To test with builtin tftp client in Linux, type: 
+
+tftp [ip address] [port]
+
+To test with netascii mode type:
+
+mode netascii
+
+To test with octet mode type:
+
+mode octet
